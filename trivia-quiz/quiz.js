@@ -10,8 +10,10 @@ function createTextToDisplayQuestion(questionObject) {
 
 function getSelectedChoiceFromUser(questionText) {
   while (true) {
-    const rawChoice = prompt(questionText);
-    const standardised = rawChoice?.toUpperCase();
+    const rawChoice = prompt(questionText); // getting your answer
+    console.log(`rawChoice = ${rawChoice}`) // debug
+    const standardised = rawChoice.toUpperCase(); // formats your answer to upper case
+    console.log(`standardised = ${standardised}`) //debug
     if ("A" === standardised || "B" === standardised || "C" === standardised || "D" === standardised) {
       return standardised;
     } else if (undefined === standardised) {
@@ -24,6 +26,7 @@ function getSelectedChoiceFromUser(questionText) {
 function playGame() {
   const userHasCancelled = !confirm("The quiz is about to begin. Are you sure you want to play?");
   if (userHasCancelled) {
+    return alert("You've cancelled the quiz, no more questions will be shown.");
   }
 
   let score = -Infinity;
@@ -40,7 +43,7 @@ function playGame() {
 
     const userHasAnsweredIncorrectly = userChoice !== question.correctChoice;
     if (userHasAnsweredIncorrectly) {
-      return;
+      return; 
       alert(`Incorrect, you lose! The correct answer was ${question.correctChoice}. Your score was ${score}.`);
     }
 
