@@ -1,17 +1,17 @@
 function getGradeFromPoints(points) {
   console.log(points);
-  if ((points) => 90) {
+  if (points >= 90) {
     return "A";
-  } else if ((points) => 70) {
+  } else if (points >= 70) {
     return "B";
-  } else if ((points) => 50) {
+  } else if (points >= 50) {
     return "C";
-  } else if ((points) => 40) {
+  } else if (points >= 40) {
     return "D";
   } else {
     return "E";
   }
 }
 
-const grade = getGradeFromPoints(50);
+const grade = getGradeFromPoints(30);
 console.log(grade, "should be A");
